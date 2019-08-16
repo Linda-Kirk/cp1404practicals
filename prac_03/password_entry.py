@@ -7,10 +7,22 @@ Example: if the user enters "Pythonista" (10 characters), the program should pri
 """
 MINIMUM_LENGTH = 10
 
-password = input('Enter a password (must be at least {} characters in length): '.format(MINIMUM_LENGTH))
-while len(password) < MINIMUM_LENGTH:
-    print('Password is too short!')
+
+def main():
+    password = get_password()
+    print_astrix_password(password)
+
+
+def print_astrix_password(password):
+    print('*' * len(password))
+
+
+def get_password():
     password = input('Enter a password (must be at least {} characters in length): '.format(MINIMUM_LENGTH))
-print('*' * len(password))
+    while len(password) < MINIMUM_LENGTH:
+        print('Password is too short!')
+        password = input('Enter a password (must be at least {} characters in length): '.format(MINIMUM_LENGTH))
+    return password
 
 
+main()
