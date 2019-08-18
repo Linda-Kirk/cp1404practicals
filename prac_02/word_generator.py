@@ -10,7 +10,7 @@ import random
 VOWELS = "aeiou"
 CONSONANTS = "bcdfghjklmnpqrstvwxyz"
 
-word_format = "ccvcvvc"
+word_format = input("Enter the word format e.g. 'ccvcvvc'(c for consonants, v for vowels):".lower())
 word = ""
 for kind in word_format:
     if kind == "c":
