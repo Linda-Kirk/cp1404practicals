@@ -16,6 +16,8 @@ while not LOWER <= ascii_code <= UPPER:
     ascii_code = int(input("Enter a number between {} and {}: ".format(LOWER, UPPER)))
 print("The character for {} is {}".format(ascii_code, chr(ascii_code)))
 
-
+# ASCII Two Column Table
+for value in range(LOWER, UPPER + 1):
+    print("{:3} {:>3}".format(value, chr(value)))
 
 
