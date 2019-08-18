@@ -15,7 +15,7 @@ def main():
     valid_input = False
     while not valid_input:
         word_format = input("Enter the word format e.g. 'ccvcvvc'(c for consonants, v for vowels):").lower()
-        valid_input = validate_word_format(word_format)
+        valid_input = is_valid_format(word_format)
 
     word = ""
     for kind in word_format:
@@ -27,12 +27,13 @@ def main():
     print(word)
 
 
-def validate_word_format(word_format):
+def is_valid_format(word_format):
     for char in word_format:
         if char not in "cv":
+            print("Invalid character")
             return False
-        else:
-            return True
+    else:
+        return True
 
 
 main()
