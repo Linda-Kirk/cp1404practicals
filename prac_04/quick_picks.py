@@ -15,8 +15,11 @@ number_quick_picks = input('Enter the number of quick picks required: ')
 numbers = []
 # for quick_pick in range(number_quick_picks):
 
-for i in range(QUANTITY_NUMBERS_PER_LINE):
+while len(numbers) < QUANTITY_NUMBERS_PER_LINE:
     number = random.randint(MINIMUM_NUMBER, MAXIMUM_NUMBER)
-    numbers.append(number)
+    print(number)
+    if number not in numbers:
+        numbers.append(number)
+numbers.sort()
 print(numbers)
 
