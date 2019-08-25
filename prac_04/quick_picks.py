@@ -11,15 +11,13 @@ QUANTITY_NUMBERS_PER_LINE = 6
 MINIMUM_NUMBER = 1
 MAXIMUM_NUMBER = 45
 
-number_quick_picks = input('Enter the number of quick picks required: ')
-numbers = []
-# for quick_pick in range(number_quick_picks):
+number_quick_picks = int(input('Enter the number of quick picks required: '))
 
-while len(numbers) < QUANTITY_NUMBERS_PER_LINE:
-    number = random.randint(MINIMUM_NUMBER, MAXIMUM_NUMBER)
-    print(number)
-    if number not in numbers:
-        numbers.append(number)
-numbers.sort()
-print(numbers)
-
+for quick_pick in range(number_quick_picks):
+    numbers = []
+    while len(numbers) < QUANTITY_NUMBERS_PER_LINE:
+        number = random.randint(MINIMUM_NUMBER, MAXIMUM_NUMBER)
+        if number not in numbers:
+            numbers.append(number)
+    numbers.sort()
+    print('{:2}'.format(numbers))
