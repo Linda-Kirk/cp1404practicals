@@ -20,4 +20,11 @@ for quick_pick in range(number_quick_picks):
         if number not in numbers:
             numbers.append(number)
     numbers.sort()
-    print('{:2}'.format(numbers))
+    # print('{:2}'.format(numbers)) - errors string method
+    # for number in numbers:
+    #     print('{:2}'.format(number), end=' ') - all quick picks on one line
+    number_string = ''.join(str(numbers))
+    print('{:2}'.format(number_string))
+
+# Lindsay's solution below - need to ask how this works
+#     print(' '.join('{:2}'.format(number) for number in numbers))
