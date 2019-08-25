@@ -1,6 +1,6 @@
 """
 This program will simulate a population of gophers over a ten-year
- period and display each year's population size.
+ period and display each year's births, deaths and population size.
 Initial population 1000. Every year, a random number of gophers is born,
 between 10% of the current population, and 20%.
  Each year, a random number of gophers die, between 5% and 25%
