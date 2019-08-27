@@ -12,6 +12,9 @@ MINIMUM_NUMBER = 1
 MAXIMUM_NUMBER = 45
 
 number_quick_picks = int(input('Enter the number of quick picks required: '))
+while number_quick_picks <= 0:
+    print('Need a minimum of 1 quick pick')
+    number_quick_picks = int(input('Enter the number of quick picks required: '))
 
 for quick_pick in range(number_quick_picks):
     numbers = []
@@ -20,11 +23,10 @@ for quick_pick in range(number_quick_picks):
         if number not in numbers:
             numbers.append(number)
     numbers.sort()
-    # print('{:2}'.format(numbers)) - errors string method
-    # for number in numbers:
-    #     print('{:2}'.format(number), end=' ') - all quick picks on one line
-    number_string = ''.join(str(numbers))
-    print('{:2}'.format(number_string))
+
+    for number in numbers:
+        print('{:2}'.format(number), end=' ')
+    print()
 
 # Lindsay's solution below - need to ask how this works
 #     print(' '.join('{:2}'.format(number) for number in numbers))
