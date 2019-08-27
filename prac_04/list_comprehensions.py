@@ -40,5 +40,5 @@ print(numbers)
 
 # use a list comprehension to create a list of only the numbers that are
 # greater than 9 from the numbers (not strings) you just created
-numbers_greater_9 = [number for number in numbers if number > 9]
-print(numbers_greater_9)
+numbers_greater_nine = [number for number in numbers if number > 9]
+print(numbers_greater_nine)
