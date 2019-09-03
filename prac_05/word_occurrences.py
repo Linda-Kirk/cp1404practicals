@@ -17,6 +17,10 @@ for word in words:
 for word in words_dictionary:
     print("{} : {}".format(word, words_dictionary[word]))
 
-
-print(words_dictionary)
-
+words = list(words_dictionary.keys())
+words.sort()
+print(words)
+# Lindsay solution
+max_length = max((len(word) for word in words))
+for word in words:
+    print("{:{}} : {}".format(word, max_length, words_dictionary[word]))
