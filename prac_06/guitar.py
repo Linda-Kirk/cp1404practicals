@@ -19,6 +19,9 @@ class Guitar:
         today = date.today()
         return today.year - self.year
 
+    def is_vintage(self):
+        return self.get_age() > Guitar.VINTAGE_THRESHOLD
+
 
 def run_tests():
     # first_guitar = Guitar((input('Guitar: ')))
@@ -30,7 +33,8 @@ def run_tests():
 
     print(first_guitar)
     print(first_guitar.get_age())
-    print(first_guitar, "Age: {}".format(first_guitar.get_age()))
+    print(first_guitar.is_vintage())
+    print(first_guitar, ". Age: {}, Vintage: {}".format(first_guitar.get_age(), first_guitar.is_vintage()))
 
 
 if __name__ == '__main__':
