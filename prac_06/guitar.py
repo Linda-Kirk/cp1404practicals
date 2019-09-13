@@ -15,10 +15,22 @@ class Guitar:
     def __str__(self):
         return '{self.make} {self.model} ({self.year}) : ${self.cost:,.2f}'.format(self=self)
 
+    def get_age(self):
+        today = date.today()
+        return today.year - self.year
+
 
 def run_tests():
-    first_guitar = Guitar((input('Guitar: ')))
+    # first_guitar = Guitar((input('Guitar: ')))
+    make = "Gibson"
+    model = "L-5 CES"
+    year = 1922
+    cost = 16035.40
+    first_guitar = Guitar(make, model, year, cost)
+
     print(first_guitar)
+    print(first_guitar.get_age())
+    print(first_guitar, "Age: {}".format(first_guitar.get_age()))
 
 
 if __name__ == '__main__':
