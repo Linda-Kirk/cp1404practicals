@@ -4,7 +4,7 @@
 class ProgrammingLanguage:
     """Represent a programming language."""
 
-    def __init__(self, language, typing, reflection, year):
+    def __init__(self, language="", typing="", reflection=True, year=0):
         self.language = language
         self.typing = typing.title()
         self.reflection = reflection
