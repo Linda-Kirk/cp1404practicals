@@ -9,6 +9,8 @@ from kivy.core.window import Window
 
 __author__ = 'Linda Kirk'
 
+MILES_TO_KILOMETRES_FACTOR = 1.60934
+
 
 class MilesConvertApp(App):
     """ MilesConvertApp is a Kivy App for converting miles to kilometres"""
@@ -22,7 +24,7 @@ class MilesConvertApp(App):
 
     def handle_calculation(self, value):
         value = self.validate_input(value)
-        result = value * 1.60934
+        result = value * MILES_TO_KILOMETRES_FACTOR
         self.root.ids.output_label.text = str(result)
 
     def handle_increment(self, increment):
