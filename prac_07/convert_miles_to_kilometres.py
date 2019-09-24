@@ -20,5 +20,21 @@ class MilesConvertApp(App):
         self.root = Builder.load_file('convert_miles_to_kilometres.kv')
         return self.root
 
+    def handle_calculation(self, value):
+        value = self.validate_input(value)
+        result = value * 1.60934
+        self.root.ids.output_label.text = str(result)
+
+    def handle_increment(self, increment):
+        new_value = self.validate_input(self.root.ids.input_number.text)
+        new_value += increment
+        self.root.ids.input_number.text = str(new_value)
+
+    def validate_input(self, input_number):
+        try:
+            return float(input_number)
+        except ValueError:
+            return 0
+
 
 MilesConvertApp().run()
