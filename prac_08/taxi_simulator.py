@@ -5,8 +5,12 @@ from prac_08.silver_service_taxi import SilverServiceTaxi
 
 
 def main():
-    taxis = [Taxi("Prius", 100), SilverServiceTaxi("Mercedes", 75, 1), SilverServiceTaxi("Limo", 100, 2),
+    taxis = [Taxi("Prius", 100), SilverServiceTaxi("Mercedes", 75, 1.5), SilverServiceTaxi("Limo", 100, 2),
              SilverServiceTaxi("Hummer", 200, 4)]
+
+    bill_to_date = 0
+    current_taxi = None
+
     print("Let's drive!")
     print("q)uit, c)hoose taxi, d)rive")
     menu_choice = input('>>>').upper()
@@ -15,13 +19,26 @@ def main():
             print("Taxis available:")
             for i, taxi in enumerate(taxis):
                 print("{} - {}".format(i, taxi))
-
+            taxi_choice = int(input("Choose taxi: "))
+            current_taxi = taxis[taxi_choice]
         elif menu_choice == 'D':
-            print(menu_choice)
+            current_taxi.start_fare()
+            distance = int(input("Drive how far? "))
+            current_taxi.drive(distance)
+            trip_cost = current_taxi.get_fare()
+            print("Your {} trip cost you ${:.2f}".format(current_taxi.name, trip_cost))
+            bill_to_date += trip_cost
         else:
             print('Invalid menu choice')
+        print("Bill to date: ${:.2f}".format(bill_to_date))
         print("q)uit, c)hoose taxi, d)rive")
         menu_choice = input('>>>').upper()
+
+    print("Total tip cost: ${:.2f}".format(bill_to_date))
+    print("Taxis are now:")
+    for i, taxi in enumerate(taxis):
+        print("{} - {}".format(i, taxi))
+
 
 
 main()
