@@ -9,8 +9,7 @@ def main():
              SilverServiceTaxi("Hummer", 200, 4)]
 
     bill_to_date = 0
-    current_taxi = None
-    # TODO: Find out how this is supposed to work!
+    current_taxi = None     # TODO: Find out how this is supposed to work!
 
     print("Let's drive!")
     print("q)uit, c)hoose taxi, d)rive")
@@ -19,7 +18,7 @@ def main():
         if menu_choice == 'C':
             print("Taxis available:")
             display_taxis(taxis)
-            taxi_choice = int(input("Choose taxi: "))
+            taxi_choice = get_taxi_choice(taxis)
             current_taxi = taxis[taxi_choice]
         elif menu_choice == 'D':
             try:
@@ -37,9 +36,25 @@ def main():
         print("q)uit, c)hoose taxi, d)rive")
         menu_choice = input('>>>').upper()
 
-    print("Total tip cost: ${:.2f}".format(bill_to_date))
+    print("Total trip cost: ${:.2f}".format(bill_to_date))
     print("Taxis are now:")
     display_taxis(taxis)
+
+
+def get_taxi_choice(taxis):
+    valid_taxi_number = False
+    while not valid_taxi_number:
+        try:
+            taxi_choice = int(input("Choose taxi: "))
+            if taxi_choice < 0:
+                print('Number must be >= 0')
+            elif taxi_choice > len(taxis) - 1:
+                print('Invalid taxi choice number')
+            else:
+                valid_taxi_number = True
+        except ValueError:
+            print('Invalid input; enter a valid number')
+    return taxi_choice
 
 
 def display_taxis(taxis):
