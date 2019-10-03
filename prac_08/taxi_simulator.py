@@ -10,6 +10,7 @@ def main():
 
     bill_to_date = 0
     current_taxi = None
+    # TODO: Find out how this is supposed to work!
 
     print("Let's drive!")
     print("q)uit, c)hoose taxi, d)rive")
@@ -17,17 +18,19 @@ def main():
     while menu_choice != 'Q':
         if menu_choice == 'C':
             print("Taxis available:")
-            for i, taxi in enumerate(taxis):
-                print("{} - {}".format(i, taxi))
+            display_taxis(taxis)
             taxi_choice = int(input("Choose taxi: "))
             current_taxi = taxis[taxi_choice]
         elif menu_choice == 'D':
-            current_taxi.start_fare()
-            distance = int(input("Drive how far? "))
-            current_taxi.drive(distance)
-            trip_cost = current_taxi.get_fare()
-            print("Your {} trip cost you ${:.2f}".format(current_taxi.name, trip_cost))
-            bill_to_date += trip_cost
+            try:
+                current_taxi.start_fare()
+                distance = int(input("Drive how far? "))
+                current_taxi.drive(distance)
+                trip_cost = current_taxi.get_fare()
+                print("Your {} trip cost you ${:.2f}".format(current_taxi.name, trip_cost))
+                bill_to_date += trip_cost
+            except AttributeError:
+                print("A taxi must be chosen before it can be driven")
         else:
             print('Invalid menu choice')
         print("Bill to date: ${:.2f}".format(bill_to_date))
@@ -36,9 +39,12 @@ def main():
 
     print("Total tip cost: ${:.2f}".format(bill_to_date))
     print("Taxis are now:")
+    display_taxis(taxis)
+
+
+def display_taxis(taxis):
     for i, taxi in enumerate(taxis):
         print("{} - {}".format(i, taxi))
-
 
 
 main()
