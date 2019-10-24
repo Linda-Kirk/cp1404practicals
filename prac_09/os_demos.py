@@ -57,20 +57,12 @@ def demo_walk():
         print("(Current working directory is: {})".format(os.getcwd()))
 
         # TODO: add a loop to rename the files
-    # for filename in os.listdir('.'):
-    #     # Ignore directories, just process files
-    #     if os.path.isdir(filename):
-    #         continue
-    #
-    #     new_name = get_fixed_filename(filename)
-    #     print("Renaming {} to {}".format(filename, new_name))
-    #     os.rename(filename, new_name)
-
-    # Lindsay's solution - still doesn't do anything? Check with Desmond
-    for filename in filenames:
-        full_name = os.path.join(directory_name, filename)
-        new_name = os.path.join(directory_name, get_fixed_filename(filename))
-        os.rename(full_name, new_name)
+        for filename in filenames:
+            path_and_name = os.path.join(directory_name, filename)
+            # print(path_and_name)
+            path_and_new_name = os.path.join(directory_name, get_fixed_filename(filename))
+            print("Renaming {} to {}".format(path_and_name, path_and_new_name))
+            os.rename(path_and_name, path_and_new_name)
 
 
 # main()
