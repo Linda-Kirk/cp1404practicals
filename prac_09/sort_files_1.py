@@ -3,7 +3,8 @@ import os
 
 
 def main():
-    """Demo os module functions."""
+    """Create folders with names derived from file extensions and move files into folders with
+    matching file extensions"""
     print("Starting directory is: {}".format(os.getcwd()))
 
     # Change to desired directory
