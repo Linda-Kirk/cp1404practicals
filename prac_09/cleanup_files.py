@@ -39,7 +39,19 @@ def main():
 
 def get_fixed_filename(filename):
     """Return a 'fixed' version of filename."""
-    new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
+
+    new_name = ""
+    previous_character = ""
+    for i, character in enumerate(filename):
+        print(i, character)
+        if character.isupper() and previous_character is not "":
+            new_name += '_' + character
+        else:
+            new_name += character
+        previous_character = character
+    print("After Loop: ", new_name)
+    new_name = new_name.title().replace(" ", "_").replace(".TXT", ".txt")
+    print("After adjustments: ", new_name)
     return new_name
 
 
@@ -57,7 +69,7 @@ def demo_walk():
             # print(path_and_name)
             path_and_new_name = os.path.join(directory_name, get_fixed_filename(filename))
             print("Renaming {} to {}".format(path_and_name, path_and_new_name))
-            os.rename(path_and_name, path_and_new_name)
+            # os.rename(path_and_name, path_and_new_name)
 
 
 # main()
